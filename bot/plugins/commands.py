@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# (c) @AlbertEinsteinTG & @Mrk_YT
+# (c) @AlbertEinsteinTG
 
 from pyrogram import filters, Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
@@ -35,7 +35,7 @@ async def start(bot, update):
                         [
                             InlineKeyboardButton
                                 (
-                                    'Developers', url="https://t.me/Mo_Tech_YT"
+                                    'Developers', url="https://t.me/CrazyBotsz"
                                 )
                         ]
                     ]
@@ -47,16 +47,13 @@ async def start(bot, update):
         return
 
     buttons = [[
-        InlineKeyboardButton('👨‍💼 𝙼𝚊𝚜𝚝𝚎𝚛', url='https://t.me/MRK_YT'),
-        InlineKeyboardButton('𝙷𝚎𝚕𝚙 🤔', callback_data="help")
+        InlineKeyboardButton('Developers', url='https://t.me/CrazyBotsz'),
+        InlineKeyboardButton('Source Code 🧾', url ='https://youtu.be/uAHl5jvnrhk')
     ],[
-        InlineKeyboardButton('🖥️ 𝚃𝚞𝚝𝚘𝚛𝚒𝚊𝚕 𝚅𝚒𝚍𝚎𝚘 🖥️', url='https://youtu.be/uAHl5jvnrhk')
+        InlineKeyboardButton('Support 🛠', url='https://t.me/Mo_tech_group')
     ],[
-        InlineKeyboardButton('🗣️ 𝙰𝚗𝚢 𝙳𝚘𝚞𝚋𝚝', url='https://t.me/Mo_Tech_group'),
-        InlineKeyboardButton('𝚄𝚙𝚍𝚊𝚝𝚎𝚜 🤖', url='https://t.me/Mo_Tech_YT')
-    ],[
-        InlineKeyboardButton('💥 𝚂𝚞𝚋𝚜𝚌𝚛𝚒𝚋𝚎 𝙼𝚢 𝚈𝚘𝚞𝚃𝚞𝚋𝚎 𝙲𝚑𝚊𝚗𝚗𝚎𝚕 💥', url='https://youtube.com/channel/UCmGBpXoM-OEm-FacOccVKgQ')
-   ]]
+        InlineKeyboardButton('Help ⚙', callback_data="help")
+    ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
     
@@ -66,17 +63,17 @@ async def start(bot, update):
                 update.from_user.first_name),
         reply_markup=reply_markup,
         parse_mode="html",
-        reply_to_message_id=update.message_id
+        reply_to_message_id=update.id
     )
 
 
 @Client.on_message(filters.command(["help"]) & filters.private, group=1)
 async def help(bot, update):
     buttons = [[
-        InlineKeyboardButton('🏠 𝙷𝚘𝚖𝚎', callback_data='start'),
-        InlineKeyboardButton('𝙰𝚋𝚘𝚞𝚝 🚩', callback_data='about')
+        InlineKeyboardButton('Home ⚡', callback_data='start'),
+        InlineKeyboardButton('About 🚩', callback_data='about')
     ],[
-        InlineKeyboardButton('🔐 𝙲𝚕𝚘𝚜𝚎 🔐', callback_data='close')
+        InlineKeyboardButton('Close 🔐', callback_data='close')
     ]]
     
     reply_markup = InlineKeyboardMarkup(buttons)
@@ -86,7 +83,7 @@ async def help(bot, update):
         text=Translation.HELP_TEXT,
         reply_markup=reply_markup,
         parse_mode="html",
-        reply_to_message_id=update.message_id
+        reply_to_message_id=update.id
     )
 
 
@@ -94,12 +91,8 @@ async def help(bot, update):
 async def about(bot, update):
     
     buttons = [[
-        InlineKeyboardButton('👤 @𝙼𝚛𝚔_𝚈𝚃 👤', url='https://t.me/MRK_YT')
-    ],[
-        InlineKeyboardButton('👤 @𝙰𝚕𝚋𝚎𝚛𝚝𝙴𝚒𝚗𝚜𝚝𝚎𝚒𝚗𝚃𝙶 👤', url='https://t.me/AlbertEinstein_TG')
-    ],[
-        InlineKeyboardButton('🏠 𝙷𝚘𝚖𝚎', callback_data='start'),
-        InlineKeyboardButton('𝙲𝚕𝚘𝚜𝚎 🔐', callback_data='close')
+        InlineKeyboardButton('Home ⚡', callback_data='start'),
+        InlineKeyboardButton('Close 🔐', callback_data='close')
     ]]
     reply_markup = InlineKeyboardMarkup(buttons)
     
@@ -109,5 +102,5 @@ async def about(bot, update):
         reply_markup=reply_markup,
         disable_web_page_preview=True,
         parse_mode="html",
-        reply_to_message_id=update.message_id
+        reply_to_message_id=update.id
     )
